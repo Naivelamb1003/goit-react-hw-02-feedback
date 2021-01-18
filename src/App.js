@@ -3,8 +3,8 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    good: 1,
-    neutral: 2,
+    good: 0,
+    neutral: 0,
     bad: 0,
   };
 
@@ -12,8 +12,7 @@ class App extends Component {
     this.setState ((prevState)=>{
       return {
         good: prevState.good + 1, 
-        
-      }
+        }
 
     });
 
@@ -31,6 +30,19 @@ class App extends Component {
     }))
   }
 
+  countTotalFeedback =()=>{
+    return this.state.good + this.state.neutral + this.state.bad;
+  }
+
+  countPositiveFeedbackPercentage=()=>{
+    const sumNeutralBad = this.state.neutral + this.state.bad;
+    if(sumNeutralBad===0){
+      return 0
+    }
+    return this.state.good / sumNeutralBad * 100;
+  }
+
+
   render() {
     return (
       <div>
@@ -46,6 +58,8 @@ class App extends Component {
             <li>Good:{this.state.good}</li>
             <li>Neutral: {this.state.neutral}</li>
             <li>Bad:{this.state.bad}</li>
+            <li>Total:{this.countTotalFeedback()}</li>
+            <li>Positive feedback: {this.countPositiveFeedbackPercentage()} %</li>
           </ul>
         </div>
       </div>
