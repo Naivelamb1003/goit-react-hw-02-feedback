@@ -1,5 +1,5 @@
 import { Component } from "react";
-import "./App.css";
+import s from "./App.module.css";
 import Statistics from "./components/Statistics/Statistics";
 import FeedbackOptions from "./components/FeedbackOptions/FeedbackOptions";
 import Section from "./components/Section/Section";
@@ -39,7 +39,7 @@ class App extends Component {
   render() {
 
     return (
-      <div>
+      <div >
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={Object.keys(this.state)}
