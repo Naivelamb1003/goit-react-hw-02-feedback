@@ -29,11 +29,11 @@ class App extends Component {
     if (Total === 0) {
       return 0;
     }
-    return (this.state.good / Total) * 100;
+    return Math.round((this.state.good / Total) * 100);
   };
 
   isStatistics() {
-    return this.state.good !== 0 || this.state.neutral!==0 || this.state.neutral !== 0;
+    return this.state.good !== 0 || this.state.neutral!==0 || this.state.bad !== 0;
   }
 
   render() {
